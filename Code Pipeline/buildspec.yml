@@ -1,0 +1,27 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  build:
+    commands:
+      - cd ./index-photos
+      - zip -r LF1.zip ./*
+      - aws s3 cp LF1.zip s3://6998-lambda-pipeline/LF1.zip
+      - cd ../Search_LF2
+      - zip -r LF2.zip ./*
+      - aws s3 cp LF2.zip s3://6998-lambda-pipeline/LF2.zip
+
+      - zip -r ./
+  post_build:
+    commands:
+      - aws s3 cp s3://6998-lambda-pipeline/LF1.zip LF1.zip
+      - aws s3 cp s3://6998-lambda-pipeline/LF2.zip LF2.zip
+      - aws lambda update-function-code --function-name index-photos --zip-file fileb://LF1.zip --publish
+      - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://LF2.zip --publish
+
+artifacts:
+  type: zip
+  files:
+    - ./index-photos/LF1.zip
+    - ./Search_LF2/LF2.zip
