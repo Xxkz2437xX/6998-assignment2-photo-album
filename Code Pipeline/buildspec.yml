@@ -6,13 +6,13 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - cd index-photos && pip install -r requirements.txt 
+      - cd ../index-photos && pip install -r requirements.txt 
       - cd ../Search_LF2 && pip install -r requirements.txt 
 
   build:
     commands:
       - echo "Build started on `date`"
-      - cd ./index-photos && zip -r ../index-photos.zip *
+      - cd ../index-photos && zip -r ../index-photos.zip *
       - cd ../Search_LF2 && zip -r ../Search_LF2.zip *
 
   post_build:
