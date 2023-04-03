@@ -1,0 +1,3 @@
+opensearchpy
+requests
+inflection
