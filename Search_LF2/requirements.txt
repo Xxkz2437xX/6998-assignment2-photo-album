@@ -1,2 +1,2 @@
-opensearchpy
+opensearch-py
 inflection
