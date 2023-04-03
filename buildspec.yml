@@ -6,8 +6,8 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - cd ./index-photos && pip install -r requirements.txt 
-      - cd ../Search_LF2 && pip install -r requirements.txt 
+      - cd index-photos && pip install -r requirements.txt --verbose
+      - cd ../Search_LF2 && pip install -r requirements.txt --verbose
 
   build:
     commands:
