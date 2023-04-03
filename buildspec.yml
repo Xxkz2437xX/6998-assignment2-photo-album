@@ -6,6 +6,10 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
+      - echo "Changing into source directory $CODEBUILD_SRC_DIR"
+      - cd $CODEBUILD_SRC_DIR
+      - echo "Installing dependencies into src file"
+      - pip install -t -r requirements.txt
       - cd index-photos && pip install -r requirements.txt --verbose
       - cd ../Search_LF2 && pip install -r requirements.txt --verbose
 
