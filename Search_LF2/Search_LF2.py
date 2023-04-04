@@ -3,7 +3,7 @@ import boto3
 from opensearchpy import OpenSearch, RequestsHttpConnection
 import requests
 from requests_aws4auth import AWS4Auth
-import inflection.inflection as inflection
+import inflection as inflection
 
 # OpenSearch
 REGION = 'us-east-1'
