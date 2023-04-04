@@ -24,4 +24,6 @@ phases:
     commands:
       - cd $CODEBUILD_SRC_DIR
       - aws lambda update-function-code --function-name index-photos --zip-file fileb://index-photos.zip 
-      - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip 
+      - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip
+      # deploy Frontend
+      - aws s3 sync ./frontend s3://xxzkbxx-cs6998-a2-frontend
