@@ -1,0 +1,97 @@
+/* Set default font and background */
+body {
+  background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/retro-photo-album-background-jorgo-photography-wall-art-gallery.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Center container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style app heading */
+.app .heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app .heading h1 {
+  font-size: 36px;
+  color: #333;
+  margin: 0;
+}
+
+/* Style search input */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  flex: 1;
+  height: 40px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.input-group button {
+  height: 40px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Style custom tag input */
+#note_customtag {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+/* Style upload input */
+.upload {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+/* Style upload button */
+.input-group button[type="submit"] {
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+}
+
+/* Style banner section */
+.banner-section {
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* Style display text */
+#displaytext {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Style speech button */
+#start-record-btn {
+  width: 100%;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  margin-top: 20px;
+}
