@@ -8,8 +8,9 @@ phases:
     commands:
       - echo "Changing into source directory $CODEBUILD_SRC_DIR"
       - cd $CODEBUILD_SRC_DIR
-      - cd index-photos && pip install -r requirements.txt --verbose
-      - cd ../Search_LF2 && pip install -r requirements.txt --verbose
+      # need to install package to local folder or use layer
+      # - cd index-photos && pip install -r requirements.txt --verbose
+      # - cd ../Search_LF2 && pip install -r requirements.txt --verbose
 
   build:
     commands:
@@ -21,5 +22,5 @@ phases:
   post_build:
     commands:
       - cd $CODEBUILD_SRC_DIR
-      - aws lambda update-function-code --function-name index-photos --zip-file fileb://index-photos.zip
-      - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip
+      - aws lambda update-function-code --function-name index-photos --zip-file fileb://index-photos.zip --layers arn:aws:lambda:us-east-1:260389976155:layer:index-photos-layer:1
+      - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip --layers arn:aws:lambda:us-east-1:260389976155:layer:Search_LF2_layer:1
