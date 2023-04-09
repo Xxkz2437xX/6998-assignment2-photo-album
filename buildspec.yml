@@ -8,7 +8,7 @@ phases:
     commands:
       - echo "Changing into source directory $CODEBUILD_SRC_DIR"
       - cd $CODEBUILD_SRC_DIR
-      # need to install package to local folder or use layer
+      - echo "need to install package to each lambda folder"
       - cd index-photos && pip install -r requirements.txt -t ./ 
       - cd ../Search_LF2 && pip install -r requirements.txt -t ./
 
@@ -16,6 +16,7 @@ phases:
     commands:
       - cd $CODEBUILD_SRC_DIR
       - echo "Build started on `date`"
+      - echo "zip package and code to zip for each lambda"
       - cd index-photos && zip -r ../index-photos.zip *
       - cd $CODEBUILD_SRC_DIR
       - cd Search_LF2 && zip -r ../Search_LF2.zip *
@@ -23,7 +24,6 @@ phases:
   post_build:
     commands:
       - cd $CODEBUILD_SRC_DIR
+      - echo "upload zip to labmda use aws cli"
       - aws lambda update-function-code --function-name index-photos --zip-file fileb://index-photos.zip 
       - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip
-      # deploy Frontend
-      - aws s3 sync ./frontend s3://xxzkbxx-cs6998-a2-frontend
