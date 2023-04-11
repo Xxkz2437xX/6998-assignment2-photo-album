@@ -21,9 +21,18 @@ phases:
       - cd $CODEBUILD_SRC_DIR
       - cd Search_LF2 && zip -r ../Search_LF2.zip *
 
-  post_build:
-    commands:
-      - cd $CODEBUILD_SRC_DIR
-      - echo "upload zip to labmda use aws cli"
-      - aws lambda update-function-code --function-name index-photos --zip-file fileb://index-photos.zip 
-      - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip
+#   post_build:
+#     commands:
+#       - cd $CODEBUILD_SRC_DIR
+#       - echo "upload zip to labmda use aws cli"
+#       - aws lambda update-function-code --function-name index-photos --zip-file fileb://index-photos.zip 
+#       - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip
+
+artifacts:
+  type: s3
+  files:
+    - 'index-photos.zip'
+    - 'Search_LF2.zip'
+  name: lambda-artifacts
+  bucket-name: xxzkbxx-lambda-zip
+  path: /
