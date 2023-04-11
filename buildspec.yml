@@ -36,3 +36,4 @@ artifacts:
   name: lambda-artifacts
   bucket-name: xxzkbxx-lambda-zip
   path: /
+  
