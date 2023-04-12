@@ -10,6 +10,7 @@ import base64
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
+
 s3 = boto3.client('s3')
 rekognition = boto3.client('rekognition')
 
