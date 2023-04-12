@@ -27,6 +27,9 @@ phases:
       - echo "deploy zip to labmda use aws cli"
       - aws lambda update-function-code --function-name index-photos --zip-file fileb://index-photos.zip 
       - aws lambda update-function-code --function-name Search_LF2 --zip-file fileb://Search_LF2.zip
-      - echo "upload zip to s3"
+      - echo "upload zip to s3" 
       - aws s3 cp index-photos.zip  s3://xxzkbxx-lambda-zip/index-photos.zip
       - aws s3 cp Search_LF2.zip  s3://xxzkbxx-lambda-zip/Search_LF2.zip
+artifacts:
+  files:
+    - index-photos.zip
