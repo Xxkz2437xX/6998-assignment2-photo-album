@@ -88,6 +88,7 @@ def search_open_search(labels):
 
 
 def lambda_handler(event, context):
+    print('Hello')
     print(f'eventss is {event}')
     q = event['queryStringParameters']['q']
     print(f'q is {q}')
